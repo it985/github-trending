@@ -38,3 +38,10 @@ jobs:
         git add -A
         git commit -m $(date '+%Y-%m-%d')
         git push
+
+    - name: Delete Workflow Runs
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        retain_days: 7
+        keep_minimum_runs: 6
+        github_token: ${{ secrets.TOKEN }}
